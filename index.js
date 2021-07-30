@@ -62,7 +62,7 @@ app.post("/api/shorturl", (req, res) => {
           short_url: doc.short_url,
         });
       } else {
-        autoInc("gohar", mongoose).then((doc) => {
+        autoInc("gohar").then((doc) => {
           ShortUrl.findOneAndUpdate(
             { original_url: req.body.url },
             {

@@ -1,12 +1,14 @@
-module.exports = function autoInc(id, mongoose) {
-  const Counter = mongoose.model(
-    "Counter",
-    new mongoose.Schema({
-      name: String,
-      increament: Number,
-    })
-  );
+const mongoose = require("mongoose");
+const { Schema } = mongoose;
 
+const Counter = mongoose.model(
+  "Counter",
+  new Schema({
+    name: String,
+    increament: Number,
+  })
+);
+module.exports = function autoInc(id) {
   return Counter.findOneAndUpdate(
     { name: id },
     { $inc: { increament: 1 } },
