@@ -24,7 +24,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-app.use("/public", express.static(`${process.cwd()}/public`));
+app.use("/public", express.static(`${__dirname}/public`));
 
 const ShortUrl = mongoose.model(
   "ShortUrl",
@@ -41,7 +41,7 @@ const ShortUrl = mongoose.model(
 );
 
 app.get("/", function (req, res) {
-  res.sendFile(process.cwd() + "/views/index.html");
+  res.sendFile(__dirname + "/views/index.html");
 });
 
 // Your first API endpoint
