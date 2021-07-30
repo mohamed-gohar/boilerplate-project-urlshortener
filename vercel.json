@@ -1,6 +1,11 @@
 {
   "version": 2,
   "name": "boilerplate-project-urlshortener",
+  "functions": {
+    "api/index.js": {
+      "runtime": "@vercel/node"
+    }
+  },
   "builds": [{ "src": "./index.js", "use": "@vercel/node" }],
-  "routes": [{ "src": "/(.*)", "dest": "/public" }]
+  "routes": [{ "src": "/(.*)", "dest": "/" }]
 }
